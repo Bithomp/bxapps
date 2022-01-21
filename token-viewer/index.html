@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Token details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.typekit.net/vtt7ckl.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    var searchParams = new URLSearchParams(window.location.search)
+    var theme = (searchParams.get('xAppStyle') || 'light').toLowerCase()
+    var link = document.createElement('link')
+    link.href = 'https://xumm.app/assets/themes/xapp/xumm-'
+      + theme + '/bootstrap.min.css'
+    link.type = 'text/css'
+    link.rel = 'stylesheet'
+    document.getElementsByTagName('head')[0].appendChild(link)
+
+    var explorer = 'https://bithomp.com/explorer/'
+  </script>
+</head>
+<body>
+
+<div class="m-2 p-2 d-none" id="error">
+  <p class="font-weight-bold mb-1" id="errorText"></p>
+</div>
+
+<div class="m-2 p-2 d-none" id="tokenDetails">
+  <p class="font-weight-bold mb-1">Token ID</p>
+  <p class="text-secondary text-break" id="tokenId"></p>
+
+  <div class="loading-state" id="loadingBlock">
+    <svg
+      id="bithomp-loader"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 49.8 52"
+    >
+      <defs>
+        <mask
+          id="loader-mask"
+          x="2.4"
+          y="-9.03"
+          width="45"
+          height="69.77"
+          maskUnits="userSpaceOnUse"
+        >
+          <path
+            id="logo-mask"
+            d="M2.9,13.5,18.5,4.6l15.7,9v3.9L18.6,8.6,2.9,17.5Zm3.5,9.2,12.2-6.9,15.6,8.9v-4L18.7,11.8,2.9,20.7V38.5l3.5,2Zm37-11.2-.1,17.8L27.7,38.2l3.5,2,15.7-9V13.5Zm-6.3.4V25.7L21.4,34.6,25,36.7l15.6-8.9V9.9L24.9,1,21.4,3ZM28.4,49,12.8,40.1V22.2l-3.5,2V42.1L24.9,51Zm2.8-5.6L19,36.5l.1-17.8-3.6,2V38.4l15.6,9,15.7-8.9v-4Z"
+            fill="#fff"
+          >
+          </path>
+        </mask>
+      </defs>
+      <path
+        id="logo-fill"
+        d="M2.9,13.5,18.5,4.6l15.7,9v3.9L18.6,8.6,2.9,17.5Zm3.5,9.2,12.2-6.9,15.6,8.9v-4L18.7,11.8,2.9,20.7V38.5l3.5,2Zm37-11.2-.1,17.8L27.7,38.2l3.5,2,15.7-9V13.5Zm-6.3.4V25.7L21.4,34.6,25,36.7l15.6-8.9V9.9L24.9,1,21.4,3ZM28.4,49,12.8,40.1V22.2l-3.5,2V42.1L24.9,51Zm2.8-5.6L19,36.5l.1-17.8-3.6,2V38.4l15.6,9,15.7-8.9v-4Z"
+        fill="#ffffff"
+      >
+      </path>
+      <g mask="url(#loader-mask)">
+        <g id="logo-stroke">
+          <g id="part-1">
+            <path
+              d="M2.9,13.5,18.5,4.6l15.7,9v3.9L18.6,8.6,2.9,17.5Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="79.96430969238281"
+              stroke-dasharray="79.96430969238281"
+            >
+            </path>
+            <path
+              d="M6.4,40.5l-3.5-2V20.7l15.8-8.9,15.5,8.9v4L18.6,15.8,6.4,22.7Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="111.61508178710938"
+              stroke-dasharray="111.61508178710938"
+            >
+            </path>
+          </g>
+          <g id="part-2">
+            <path
+              d="M46.9,13.5V31.2l-15.7,9-3.5-2,15.6-8.9.1-17.8Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="79.61945343017578"
+              stroke-dasharray="79.61945343017578"
+            >
+            </path>
+            <path
+              d="M21.4,3l3.5-2L40.6,9.9V27.8L25,36.7l-3.6-2.1,15.7-8.9V11.9Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="112.00057220458984"
+              stroke-dasharray="112.00057220458984"
+            >
+            </path>
+          </g>
+          <g id="part-3">
+            <path
+              d="M24.9,51,9.3,42.1V24.2l3.5-2V40.1L28.4,49Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="79.78271484375"
+              stroke-dasharray="79.78271484375"
+            >
+            </path>
+            <path
+              d="M46.8,34.5v4L31.1,47.4l-15.6-9V20.7l3.6-2L19,36.5l12.2,6.9Z"
+              fill="none"
+              stroke="#ffffff"
+              stroke-miterlimit="10"
+              stroke-dashoffset="111.65198516845703"
+              stroke-dasharray="111.65198516845703"
+            >
+            </path>
+          </g>
+        </g>
+      </g>
+      <style>
+        @keyframes draw-in-loader {
+          30%, 70% {
+            stroke-dashoffset: 0;
+          }
+        }
+        @keyframes fade-in-loader {
+          0%, 30%, 70%, 100% {
+            opacity: 0;
+          }
+          40%, 60% {
+            opacity: 1;
+          }
+        }
+        #bithomp-loader #logo-stroke #part-1 path,
+        #bithomp-loader #logo-stroke #part-2 path,
+        #bithomp-loader #logo-stroke #part-3 path {
+          animation: draw-in-loader 10s ease-in-out both infinite;
+        }
+        #bithomp-loader #logo-fill {
+          animation: fade-in-loader 10s linear both infinite;
+        }
+      </style>
+    </svg>
+    <br/><br/>
+    <center>Loading data from Bithomp</center>
+  </div>
+
+  <div id="tokenData" class="d-none">
+    <p class="font-weight-bold mb-1">Type</p>
+    <p id="tokenType">not found (api connection error)</p>
+
+    <p class="font-weight-bold mb-1">Name</p>
+    <p id="tokenName">not found (api connection error)</p>
+
+    <div id="nftBlock" class="d-none">
+      <p class="font-weight-bold mb-1">Issued</p>
+      <p id="timestamp"></p>
+    </div>
+
+    <div id="issuerBlock" class="d-none"></div>
+
+    <div id="ctiInvalidBlock" class="d-none">
+      <p class="font-weight-bold mb-1">CTI</p>
+      <p><span id="ctiInvalid"></span> (<span class="text-danger">invalid</span>)</p>
+    </div>
+
+    <div id="ctiDetails" class="d-none">
+      <hr>
+      <center>
+        <h5>CTI details</h5>
+      </center>
+    </div>
+
+    <div id="ctiTxAccount" class="d-none"></div>
+    <div id="ctiTxDestination" class="d-none"></div>
+  </div>
+
+  <div id="credits" class="d-none">
+    <hr/>
+    Powered by 
+    <a href="https://bithomp.com" onclick="go(this); return false;">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 142 46" enable-background="new 0 0 142 46" xml:space="preserve" height="30px" width="93px" style="margin-top: -1px;">
+        <g>
+          <g>
+            <path fill="#FFFFFF" d="M53.9,19.5c-0.5-0.7-1.2-1.2-2-1.5c-0.8-0.4-1.7-0.5-2.7-0.5c-0.8,0-1.5,0.1-2.2,0.3
+              c-0.5,0.2-0.9,0.4-1.2,0.5v-6.4L43,13.3v18.2l0.1,0c0.6,0.2,1.3,0.3,2.2,0.5c0.9,0.2,2,0.2,3.1,0.2c1.1,0,2.1-0.2,2.9-0.5
+              c0.9-0.3,1.6-0.8,2.2-1.5c0.6-0.6,1.1-1.4,1.4-2.3c0.3-0.9,0.5-2,0.5-3.1c0-1.1-0.1-2.1-0.4-3C54.8,20.9,54.4,20.1,53.9,19.5z
+              M52.7,24.8c0,1.6-0.4,2.8-1.2,3.7c-0.8,0.9-1.8,1.3-3.1,1.3c-0.7,0-1.2,0-1.7-0.1c-0.4-0.1-0.7-0.1-1-0.2v-8.7
+              c0.3-0.2,0.7-0.5,1.2-0.7c0.6-0.2,1.2-0.3,1.8-0.3c0.7,0,1.3,0.1,1.8,0.4c0.5,0.2,0.9,0.6,1.2,1c0.3,0.4,0.5,1,0.7,1.6
+              C52.6,23.4,52.7,24.1,52.7,24.8z"/>
+            <rect x="58" y="17.7" fill="#FFFFFF" width="2.7" height="14.2"/>
+            <path fill="#FFFFFF" d="M59.3,11.9c-0.5,0-0.9,0.2-1.2,0.5c-0.3,0.3-0.5,0.7-0.5,1.3s0.2,1,0.5,1.3c0.3,0.3,0.7,0.5,1.2,0.5
+              c0.5,0,0.9-0.2,1.2-0.5c0.3-0.3,0.5-0.7,0.5-1.3c0-0.5-0.2-1-0.5-1.3C60.2,12.1,59.8,11.9,59.3,11.9z"/>
+            <path fill="#FFFFFF" d="M71.1,29.2c-0.2,0.1-0.5,0.2-0.9,0.4c-0.4,0.2-1,0.2-1.8,0.2c-0.4,0-0.8-0.1-1.1-0.2
+              c-0.3-0.1-0.6-0.3-0.8-0.5c-0.2-0.2-0.4-0.6-0.5-1c-0.1-0.4-0.2-1-0.2-1.7V20h5.3v-2.3h-5.3v-5.9l-2.7,1.5v13.1
+              c0,0.9,0.1,1.8,0.2,2.5c0.2,0.7,0.4,1.3,0.8,1.8c0.4,0.5,0.9,0.9,1.5,1.1c0.6,0.2,1.4,0.4,2.4,0.4c0.8,0,1.6-0.1,2.2-0.3
+              c0.2-0.1,0.3-0.1,0.4-0.1c0.2-0.1,0.2-0.1,0.4-0.2l0.1,0l0-2.5L71.1,29.2z"/>
+            <path fill="#FFFFFF" d="M84.1,19.2c-0.5-0.6-1.1-1-1.8-1.4c-0.7-0.3-1.7-0.5-2.8-0.5c-0.5,0-1.1,0.1-1.6,0.1
+              c-0.5,0.1-0.9,0.2-1.4,0.4v-6.1l-2.7,1.5v18.6h2.7V20.3c0.1,0,0.2-0.1,0.4-0.1c0.2-0.1,0.4-0.1,0.7-0.1c0.3,0,0.5-0.1,0.8-0.1
+              c1-0.1,1.8,0,2.4,0.2c0.4,0.2,0.8,0.4,1,0.8c0.3,0.4,0.4,0.8,0.6,1.4c0.1,0.6,0.2,1.3,0.2,2.2v7.4h2.7v-8c0-1-0.1-1.8-0.3-2.6
+              C84.8,20.5,84.5,19.8,84.1,19.2z"/>
+            <path fill="#FFFFFF" d="M98.7,19.4c-0.6-0.7-1.3-1.2-2.1-1.5c-0.8-0.4-1.7-0.5-2.7-0.5c-1,0-1.9,0.2-2.7,0.5
+              c-0.8,0.4-1.5,0.9-2.1,1.5c-0.6,0.7-1.1,1.4-1.4,2.4c-0.3,0.9-0.5,1.9-0.5,3c0,1.1,0.2,2.1,0.5,3.1c0.3,0.9,0.8,1.7,1.4,2.4
+              c0.6,0.7,1.3,1.2,2.1,1.5c0.8,0.4,1.7,0.5,2.7,0.5c1,0,1.9-0.2,2.7-0.5c0.8-0.4,1.5-0.9,2.1-1.5c0.6-0.7,1.1-1.4,1.4-2.4
+              c0.3-0.9,0.5-1.9,0.5-3.1c0-1.1-0.2-2.1-0.5-3C99.8,20.9,99.3,20.1,98.7,19.4z M93.9,29.8c-1.2,0-2.1-0.5-2.8-1.3
+              c-0.7-0.9-1-2.1-1-3.7c0-1.5,0.3-2.8,1-3.7c0.7-0.9,1.6-1.3,2.8-1.3c1.2,0,2.1,0.5,2.8,1.3c0.7,0.9,1,2.1,1,3.7
+              c0,1.5-0.3,2.8-1,3.7C96,29.4,95.1,29.8,93.9,29.8z"/>
+            <path fill="#FFFFFF" d="M120.9,19.3c-0.4-0.6-1-1.1-1.6-1.4c-0.7-0.3-1.6-0.5-2.7-0.5c-0.6,0-1.1,0.1-1.6,0.2
+              c-0.5,0.1-0.9,0.3-1.3,0.4c-0.4,0.2-0.7,0.3-1,0.5c-0.2,0.1-0.4,0.2-0.5,0.3c-0.4-0.4-0.9-0.8-1.5-1c-0.6-0.2-1.4-0.4-2.3-0.4
+              c-1.2,0-2.3,0.1-3.3,0.2c-1,0.2-1.7,0.3-2.3,0.5l-0.1,0v13.8h2.7V20.1c0.1,0,0.2,0,0.3-0.1c0.2,0,0.5-0.1,0.7-0.1
+              c0.3,0,0.5,0,0.8-0.1c0.3,0,0.6,0,0.8,0c0.6,0,1,0.1,1.4,0.3c0.4,0.2,0.6,0.4,0.9,0.8c0.2,0.4,0.4,0.9,0.5,1.4
+              c0.1,0.6,0.1,1.3,0.1,2.1v7.4h2.7v-8c0-0.6,0-1.2-0.1-1.8c-0.1-0.5-0.2-1-0.3-1.5c0.2-0.2,0.5-0.3,1-0.5c0.5-0.2,1.2-0.3,2-0.3
+              c0.6,0,1.1,0.1,1.4,0.3c0.4,0.2,0.6,0.4,0.9,0.8c0.2,0.4,0.4,0.9,0.4,1.4c0.1,0.6,0.1,1.3,0.1,2.1v7.4h2.7v-8
+              c0-0.9-0.1-1.8-0.2-2.6C121.6,20.6,121.3,19.9,120.9,19.3z"/>
+            <path fill="#FFFFFF" d="M136.6,21.8c-0.3-0.9-0.8-1.7-1.4-2.3c-0.6-0.6-1.4-1.1-2.2-1.5c-0.9-0.3-1.9-0.5-2.9-0.5
+              c-1.2,0-2.2,0.1-3.1,0.3c-0.9,0.2-1.6,0.3-2.2,0.5l-0.1,0v19.5l2.7-1.5v-4.8c0.3,0.2,0.7,0.3,1.2,0.5c0.6,0.2,1.4,0.3,2.2,0.3
+              c1,0,1.9-0.2,2.7-0.5c0.8-0.4,1.5-0.9,2-1.5c0.5-0.7,1-1.4,1.2-2.4c0.3-0.9,0.4-1.9,0.4-3C137.1,23.7,136.9,22.7,136.6,21.8z
+              M127.2,20.1c0.2-0.1,0.5-0.1,0.9-0.2c0.4-0.1,1-0.1,1.7-0.1c1.3,0,2.4,0.4,3.1,1.3c0.8,0.9,1.2,2.1,1.2,3.7c0,0.7-0.1,1.4-0.2,2
+              c-0.1,0.6-0.4,1.1-0.7,1.6c-0.3,0.4-0.7,0.8-1.2,1c-0.5,0.3-1.1,0.4-1.8,0.4c-0.7,0-1.3-0.1-1.8-0.3c-0.5-0.2-0.9-0.4-1.2-0.7
+              V20.1z"/>
+          </g>
+          <g>
+            <polygon fill="#4BA7B5" points="4.7,13.4 16.1,6.8 27.6,13.4 27.6,16.4 16.1,9.8 4.7,16.4 		"/>
+            <polygon fill="#4BA7B5" points="7.3,33.5 4.7,32 4.7,18.7 16.2,12.1 27.6,18.7 27.6,21.7 16.1,15.1 7.3,20.3 		"/>
+            <polygon fill="#4BA7B5" points="36.9,13.4 36.9,26.6 25.4,33.2 22.9,31.8 34.3,25.1 34.3,11.9 		"/>
+            <polygon fill="#4BA7B5" points="18.2,5.6 20.8,4.1 32.3,10.7 32.3,24 20.8,30.6 18.2,29.1 29.7,22.5 29.7,12.2 		"/>
+            <polygon fill="#4BA7B5" points="20.8,41.3 9.3,34.7 9.3,21.4 11.9,19.9 11.9,33.1 23.3,39.8 		"/>
+            <polygon fill="#4BA7B5" points="36.9,29 36.9,32 25.4,38.6 13.9,31.9 13.9,18.8 16.5,17.2 16.5,30.5 25.4,35.6 		"/>
+          </g>
+        </g>
+      </svg>
+    </a>
+  </div>
+
+</div>
+
+</body>
+<style>
+  body {
+    font-family: proxima-nova, sans-serif;
+  }
+  hr {
+    background-color: #606885;
+  }
+  .loading-state {
+    position: relative;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+  }
+</style>
+<script>
+  var tokenId = searchParams.get('token')
+  if (tokenId && tokenId.length === 40) {
+    $("#tokenId").text(tokenId)
+    $("#tokenDetails").removeClass("d-none")
+
+    var issuer = searchParams.get('issuer')
+    if (issuer) {
+      $("#issuerBlock").append(addRow("Issuer", '<a href="' + explorer + issuer + '" onclick="go(this); return false;">' + issuer + '</a>'))
+      bithompRequest("https://bithomp.com/api/v2/address/" + issuer + "?service=true&username=true&verifiedDomain=true", getIssuerInfo)
+      $("#issuerBlock").removeClass("d-none")
+    }
+
+    var seconds = 0;
+    function incrementSeconds() {
+      seconds += 1;
+    }
+    var timer = setInterval(incrementSeconds, 1000);
+
+    bithompRequest("https://bithomp.com/api/v2/currency/" + tokenId, getTokenInfo)
+  } else {
+    var errorText = "There is no valid 'token' in the query!"
+    $("#errorText").text(errorText)
+    $("#error").removeClass("d-none")
+  }
+
+  if (theme === "light") {
+    $("#bithomp-loader path")
+      .attr("fill", function() {
+        if ($(this).attr("fill") === '#ffffff') return "#3fa3b5"
+      })
+      .attr("stroke", function() {
+        if ($(this).attr("stroke") === '#ffffff') return "#3fa3b5"
+      })
+
+    $("#credits path")
+      .attr("fill", function() {
+        if ($(this).attr("fill") === '#FFFFFF') return "#162021"
+      })
+    $("#credits rect").attr("fill", "#162021")
+  }
+
+  function getIssuerInfo(json) {
+    addressBlock(json, "#issuerBlock")
+  }
+
+  function addressBlock(json, el) {
+    if (json) {
+      if (json.service) {
+        $(el).append('<p>Service name: <span class="text-success">' + json.service.name + '</span></p>')
+      }
+      if (json.username) {
+        $(el).append('<p>Username: <span class="text-success">' + json.username + '</span></p>')
+      }
+      if (json.verifiedDomain) {
+        $(el).append('<p>Web: <a href="https://' + json.verifiedDomain + '" onclick="go(this); return false;">' + json.verifiedDomain + '</a><span class="text-success"> (verified)</span></p>')
+      } else if (json.service && json.service.domain) {
+        $(el).append('<p>Web: <a href="https://' + json.service.domain + '" onclick="go(this); return false;">' + json.service.domain + '</a></p>')
+      }
+      if (json.service && json.service.socialAccounts && json.service.socialAccounts.twitter) {
+        $(el).append('<p>Twitter: <a href="https://twitter.com/' + json.service.socialAccounts.twitter + '" onclick="go(this); return false;">@' + json.service.socialAccounts.twitter + '</a></p>')
+      }
+    }
+  }
+
+  function bithompRequest(url, callback) {
+    $.ajax({
+       url: url,
+       type: "GET",
+       contentType: "application/json",
+       headers: {
+          "x-bithomp-token": "xxx"
+       },
+       success: function(result) {
+          callback(result);
+       },
+       error: function(error) {
+          console.log(error);
+          callback({"error": "error occurred"});
+       }
+    });
+  }
+
+  function addRow(name, data) {
+    return '<p class="font-weight-bold mb-1">'+name+'</p><p>'+data+'</p>'
+  }
+
+  function nftUriRow(uri, name) {
+    var hash = ''
+    var output = ''
+    if (uri) {
+      if (uri.substring(0, 5) === 'hash:') {
+        hash = uri.substring(5)
+      } else if (uri.substring(0, 7) === 'ipfs://') {
+        hash = uri.substring(7)
+      }
+      if (hash) {
+        output += '<p class="font-weight-bold mb-1">' + name + ' IPFS</p>'
+        var ipfsLink = 'https://ipfs.io/ipfs/' + hash
+        output += '<p><a href="https://ipfs.io/ipfs/' + hash +'" class="btn btn-primary btn-sm" role="button" onclick="go(this); return false;">View</a></p>'
+      } else {
+        output += '<p class="font-weight-bold mb-1">' + name + ' URI</span>'
+        output += '<p>' + uri + '</p>';
+      }
+    }
+    return output
+  }
+
+  function getTokenInfo(json) {
+    if (json) {
+      var token = json
+      if (token.type) {
+        $("#tokenType").text(token.type.toUpperCase())
+      }
+      if (token.nft && token.nft.type) {
+        $("#tokenType").text($("#tokenType").text() + " (" + token.nft.type +")" )
+      }
+      $("#tokenName").text(token.currency)
+
+      if (token.ctiValid) {
+        $("#nftBlock").removeClass("d-none")
+        var d = new Date(token.timestamp * 1000)//,
+      		//yyyy = d.getFullYear(),
+      		//mm = ('0' + (d.getMonth() + 1)).slice(-2),
+      		//dd = ('0' + d.getDate()).slice(-2),
+      		//hh = d.getHours(),
+      		//min = ('0' + d.getMinutes()).slice(-2),
+          //sec = ('0' + d.getSeconds()).slice(-2)
+        //var formattedTime = yyyy + '-' + mm + '-' + dd + ', ' + hh + ':' + min + ':' + sec;
+        $("#timestamp").text(d)
+
+        if (token.nft) {
+          if (token.nft.author) {
+            $("#nftBlock").append(addRow("Author", token.nft.author))
+          }
+
+          if (token.nft.primaryUri) {
+            $("#nftBlock").append(nftUriRow(token.nft.primaryUri, "Primary"))
+          }
+
+          if (token.nft.description) {
+            $("#nftBlock").append(addRow("Description", token.nft.description.replace(/\\"/g, '"')))
+          }
+
+          if (token.nft.backupUri) {
+            $("#nftBlock").append(nftUriRow(token.nft.backupUri, "Backup"))
+          }
+
+          if (token.nft.image) {
+            $("#nftBlock").append('<img src="' + token.nft.image + '"/>')
+          }
+
+          $("#ctiDetails").removeClass("d-none")
+
+          $("#ctiDetails").append(addRow("CTI", token.cti + ' (<span class="text-success">valid</span>),<br/> ledger: ' + token.ctiLedger + ', index: ' + token.ctiTxIndex))
+
+          var ctiTxHash = token.ctiTx.hash
+          $("#ctiDetails").append(addRow("Issuing transaction", '<a href="' + explorer + ctiTxHash + '" onclick="go(this); return false;">' + ctiTxHash.substring(0, 16) + '...' + ctiTxHash.substring(ctiTxHash.length - 16) + '</a>'))
+
+          $("#ctiDetails").append(addRow("Transaction type", token.ctiTx.type))
+
+          $("#ctiTxAccount").append(addRow("Transaction issuer", '<a href="' + explorer + token.ctiTx.account + '" onclick="go(this); return false;">' + token.ctiTx.account + '</a>'))
+          $("#ctiTxAccount").removeClass("d-none")
+          bithompRequest("https://bithomp.com/api/v2/address/" + token.ctiTx.account + "?service=true&username=true&verifiedDomain=true", getCtiTxAccountInfo)
+
+          if (token.ctiTx.destination) {
+            $("#ctiTxDestination").append(addRow("Transaction destination", '<a href="' + explorer + token.ctiTx.destination + '" onclick="go(this); return false;">' + token.ctiTx.destination + '</a>'))
+            $("#ctiTxDestination").removeClass("d-none")
+            bithompRequest("https://bithomp.com/api/v2/address/" + token.ctiTx.destination + "?service=true&username=true&verifiedDomain=true", getCtiTxDestinationInfo)
+          }
+        }
+      } else if (token.type && token.type.toUpperCase() === 'NFT') {
+        $("#ctiInvalid").text(token.cti)
+        $("#ctiInvalidBlock").removeClass("d-none")
+      }
+    }
+    showDetails()
+  }
+
+  function getCtiTxAccountInfo(json) {
+    addressBlock(json, "#ctiTxAccount")
+  }
+
+  function getCtiTxDestinationInfo(json) {
+    addressBlock(json, "#ctiTxDestination")
+  }
+
+  function showDetails() {
+    if (seconds > 2) {
+      clearInterval(timer)
+      $("#loadingBlock").hide()
+      $("#tokenData").removeClass("d-none")
+      $("#credits").removeClass("d-none")
+    } else {
+      setTimeout(showDetails, 1000)
+    }
+  }
+
+  function go(e) {
+    if (typeof window.ReactNativeWebView !== 'undefined') {
+      window.ReactNativeWebView.postMessage(JSON.stringify({
+       "command": "openBrowser",
+       "url": e.getAttribute("href")
+      }))
+    }
+  }
+
+</script>
+</html>
