@@ -1,5 +1,7 @@
 # token-viewer
 
+https://raw.githubusercontent.com/bithomp/bxapps/master/token-viewer/docs/video1.mp4
+
 Get params:
 
 ?xAppStyle=royal&token=02C7004B041A91880000526964776F726C643836&issuer=rGpmRmU3Q5gyhhyWLWugkPX6SA8FyqXyE5
