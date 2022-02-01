@@ -1,6 +1,6 @@
 # token-viewer
 
-https://raw.githubusercontent.com/bithomp/bxapps/master/token-viewer/docs/video1.mp4
+![XUMM preview](https://raw.githubusercontent.com/bithomp/bxapps/master/token-viewer/docs/video1.gif)
 
 Get params:
 
@@ -8,6 +8,6 @@ Get params:
 
 ?xAppStyle=moonlight&token=534F4C4F00000000000000000000000000000000&issuer=rsoLo2S1kiGeCcn6hCUXVrCpGMWLrRrLZz
 
-![alt text](https://raw.githubusercontent.com/Bithomp/bxapps/main/token-viewer/docs/screenshot1.png)
+![Screenshot 1](https://raw.githubusercontent.com/Bithomp/bxapps/main/token-viewer/docs/screenshot1.png)
 
-![alt text](https://raw.githubusercontent.com/Bithomp/bxapps/main/token-viewer/docs/screenshot2.png)
+![Screenshot 2](https://raw.githubusercontent.com/Bithomp/bxapps/main/token-viewer/docs/screenshot2.png)
